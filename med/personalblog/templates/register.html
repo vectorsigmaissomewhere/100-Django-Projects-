@@ -8,28 +8,38 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% include "messages.html" %}
             <h2>Sign Up</h2>
             <div class="content">
                 <div class="input-box">
                     <label for="">Email</label>
-                    <input type="email" name="email" placeholder="Enter Email">
+                    <input type="email" name="email" placeholder="Enter Email" value="{{ email }}">
                 </div>
                 <div class="input-box">
                     <label for="">First Name</label>
-                    <input type="text" name="firstname" placeholder="Enter First Name">
+                    <input type="text" name="firstname" placeholder="Enter First Name" value="{{ firstname }}">
                 </div>
                 <div class="input-box">
                     <label for="">Middle Name</label>
-                    <input type="text" name="middlename" placeholder="Enter Middle Name">
+                    <input type="text" name="middlename" placeholder="Enter Middle Name" value="{{ middlename }}">
                 </div>
                 <div class="input-box">
                     <label for="">Last Name</label>
-                    <input type="text" name="lastname" placeholder="Enter Last Name">
+                    <input type="text" name="lastname" placeholder="Enter Last Name" value="{{ lastname }}">
                 </div>
                 <div class="input-box">
                     <label for="">Phone Number</label>
-                    <input type="text" name="phonenumber" placeholder="Enter Phone Numeber">
+                    <input type="text" name="phonenumber" placeholder="Enter Phone Numeber" value="{{ phonenumber }}">
+                </div>
+                <div class="input-box">
+                    <label for="">Password</label>
+                    <input type="password" name="password" placeholder="Enter Your Password" value="{{ password }}">
+                </div>
+                <div class="input-box">
+                    <label for="">Confirm Password</label>
+                    <input type="password" name="password_confirm" placeholder="Confirm Your Password" value="{{ password_confirm }}">
                 </div>
             </div>
             <div class="button-container">
