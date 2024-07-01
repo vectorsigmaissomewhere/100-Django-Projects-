@@ -8,6 +8,12 @@
 <body>
     <h1>THis is our login page</h1>
     {% include "messages.html" %}
-    
+    <form action="POST">
+        {% csrf_token %}
+        <label>Email</label>
+        <input name="email" type="text">
+        <label>Password</label>
+        <input name="Password" type="password">
+    </form>
 </body>
 </html>
