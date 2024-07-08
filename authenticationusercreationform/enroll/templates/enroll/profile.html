@@ -13,6 +13,20 @@
     <small {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</small>
     {% endfor %}
     {% endif %}
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="er">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        {% for fm in form %}
+        {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }} <br><br>
+        {% endfor %}
+        <input type="submit" value="save">
+    </form>
+    <a href="{% url 'changepass' %}">Change Password with old password</a><br> <!--Change password with old password-->
+    <a href="{% url 'changepass1' %}">Change Password without old password</a> <!--Change password without old password-->
     <a href="{% url 'logout' %}">Logout</a>
 </body>
 </html>

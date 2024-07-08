@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+<body>
+    <h1>Change password without old password</h1>
+    <!--novalidate lauda tyo khali jada fill garr vnne message dekhaudaina-->
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="er">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        {% for fm in form %}
+        {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }}<br><br>
+        {% endfor %}
+        <input type="submit" value="Save">
+    </form>
+    <a href="{% url 'profile' %}">Profile</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
