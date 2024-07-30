@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LoginScreen = () => {
+function LoginScreen() {
   return (
     <div>LoginScreen</div>
   )

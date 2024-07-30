@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CartScreen = () => {
+function CartScreen() {
   return (
     <div>CartScreen</div>
   )
