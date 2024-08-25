@@ -1,35 +1,66 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
+// Example of a React application which renders a list of user items and allows us 
+// add and remove items with callback handlers. We are using React's useState Hook 
+// to make the list stateful
+// function being saved // values being saved 
 
-function App(){
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
+import React, { useCallback } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        'https://hn.algolia.com/api/v1/search?query=redux',
-      );
-      setData(result.data);
-    };
-    fetchData();
-  },[]);
-  return(
-    <Fragment>
-      <input
-      type='text'
-      value={query}
-      onChange={event => setQuery(event.target.value)}
-      />
-      <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
+const App = () => {
+  const [users, setUsers] = React.useState([
+    { id: 'a', name: 'Robin' },
+    { id: 'b', name: 'Dennis' },
+  ]);
+
+  const [text, setText] = React.useState('');
+
+  const handleText = (event) => {
+    setText(event.target.value);
+  };
+
+  const handleAddUser = () => {
+    setUsers((prevUsers) => prevUsers.concat({ id: uuidv4(), name: text }));
+  };
+
+  // Memoize handleRemove to prevent re-creation on each render
+  const handleRemove = useCallback(
+    (id) => setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id)),
+    [users]
   );
-}
+
+  return (
+    <div>
+      <input type="text" value={text} onChange={handleText} />
+      <button type="button" onClick={handleAddUser}>
+        Add User
+      </button>
+      {/* Memoized List component */}
+      <List list={users} onRemove={handleRemove} />
+    </div>
+  );
+};
+
+// Wrap List in React.memo to prevent re-render if props don't change
+const List = React.memo(({ list, onRemove }) => {
+  return (
+    <ul>
+      {list.map((item) => (
+        <ListItem key={item.id} item={item} onRemove={onRemove} />
+      ))}
+    </ul>
+  );
+});
+
+// Wrap ListItem in React.memo to prevent re-render if props don't change
+const ListItem = React.memo(({ item, onRemove }) => {
+  return (
+    <li>
+      {item.name}
+      <button type="button" onClick={() => onRemove(item.id)}>
+        Remove
+      </button>
+    </li>
+  );
+});
 
 export default App;
