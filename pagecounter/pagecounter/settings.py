@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4e%*gq-g=+#nfz7oy6o+j54^)%+b+cazj8%y(x2l1ll@ix7*px'
+SECRET_KEY = 'django-insecure-gf(_%&a7ie*9&a=ob#m#nfjum^hdmn0*pl5d7#)7x1cz6lebfy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'student',
+    'mycount',
 ]
 
 MIDDLEWARE = [
@@ -39,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'fileBassedSession.urls'
+ROOT_URLCONF = 'pagecounter.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +56,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'fileBassedSession.wsgi.application'
+WSGI_APPLICATION = 'pagecounter.wsgi.application'
 
 
 # Database
@@ -111,7 +110,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-SESSION_ENGINE = 'django.contrib.sessions.backends.file' # now file will save in file
-SESSION_FILE_PATH = os.path.join(BASE_DIR, 'session') # path where session will get saved
