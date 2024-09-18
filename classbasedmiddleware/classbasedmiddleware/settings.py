@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*dd8dw3pt-+k(^)ukd5kbt@uw34wxp#qfz)%x33l&rpuobh0^^'
+SECRET_KEY = 'django-insecure-2@vs0e6--5kz2u9t$569bfr&-4)o&7vw!ssxd+rsh@ldbl=fmi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,10 +36,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'blog.middlewares.MyMiddleware', # app.filename.middlewarename
+    'blog.middlewares.MyMiddleware',
 ]
 
-ROOT_URLCONF = 'middleware.urls'
+ROOT_URLCONF = 'classbasedmiddleware.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'middleware.wsgi.application'
+WSGI_APPLICATION = 'classbasedmiddleware.wsgi.application'
 
 
 # Database
