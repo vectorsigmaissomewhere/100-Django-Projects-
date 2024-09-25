@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queryset Api</title>
+    <style>
+        table, th, tr, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <h1>Student Information</h1>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Roll</th>
+    <th>City</th>
+    <th>Marks</th>
+    <th>Passing Year</th>
+    <tr>
+    <td>{{ student.id }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.roll }}</td>
+    <td>{{ student.city }}</td>
+    <td>{{ student.marks }}</td>
+    <td>{{ student.pass_date }}</td>
+    </tr>
+    </table>
+</body>
+</html>
