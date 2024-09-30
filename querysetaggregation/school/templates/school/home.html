@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
+        }
+        h3 {
+            margin: 20px 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Student Information</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>City</th>
+                <th>Marks</th>
+                <th>Passing Date</th>
+                <th>Admission Date Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.roll }}</td>
+                <td>{{ student.city }}</td>
+                <td>{{ student.marks }}</td>
+                <td>{{ student.passdate }}</td>
+                <td>{{ student.admdatetime }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+    <h3>Statistics</h3>
+    <ul>
+        <li>Average Marks: {{ average.marks__avg }} {{average}}</li>
+        <li>Sum of Marks: {{ summation.marks__sum }} {{summation}}</li>
+        <li>Minimum Marks: {{ minimum.marks__min }} {{minimum}}</li>
+        <li>Maximum Marks: {{ maximum.marks__max }} {{maximum}}</li>
+        <li>Total Count of Students: {{ totalcount.marks__count }} {{totalcount}}</li>
+    </ul>
+</body>
+</html>
