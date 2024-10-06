@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
+        }
+        h3 {
+            margin: 20px 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Student Information</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.fees }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><hr>
+    <h3>Teacher Information</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.age }}</td>
+                <td>{{ teacher.date }}</td>
+                <td>{{ teacher.salary }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><hr>
+    <h3>Contractor Information</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Date</th>
+                <th>Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contractor in contractors %}
+            <tr>
+                <td>{{ contractor.name }}</td>
+                <td>{{ contractor.age }}</td>
+                <td>{{ contractor.date }}</td>
+                <td>{{ contractor.payment }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><hr>
+</body>
+</html>
