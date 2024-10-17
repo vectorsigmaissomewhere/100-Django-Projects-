@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is Student fourth html page as we have changed the context from student_list to students</h1>
+    {% for student in students %}
+    {{student.name}}
+    {{student.roll}}
+    {{student.course}} <br>
+    {% endfor %}
+</body>
+</html>

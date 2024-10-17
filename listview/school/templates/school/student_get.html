@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is student_get.html template</h1>
+    {% for student in student_list %}
+    {{student.name}}
+    {{student.roll}}
+    {{student.course}} <br>
+    {% endfor %}
+</body>
+</html>

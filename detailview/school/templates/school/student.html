@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Custom Template Name</h1>
+    <h1>Student_detail Page</h1>
+    {{student.id}}
+    {{student.name}}
+    {{student.roll}}
+    {{student.course}}
+    {% for student in all_student %}
+    <a href="{% url 'studentdetail' student.id %}">{{student.id}}</a><br>
+    {% endfor %} 
+</body>
+</html>
